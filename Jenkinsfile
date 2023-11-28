@@ -3,7 +3,7 @@ pipeline {
     
     tools {
         // Использовать инструмент Maven, установленный из репозитория
-        maven 'Maven'
+        maven '395'
     }
 
     stages {
