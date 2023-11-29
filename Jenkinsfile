@@ -3,13 +3,14 @@ pipeline {
   stages {
     stage('buzz build') {
       steps {
-        sh './jenkins/build.sh'
+        def buildScriptPath = "/var/lib/jenkins/workspace/12345_main/build.sh"
+                    
       }
     }
 
     stage('test') {
       steps {
-        sh './jenkins/test.sh'
+        def buildScriptPath = "/var/lib/jenkins/workspace/12345_main/test.sh'
       }
     }
 
