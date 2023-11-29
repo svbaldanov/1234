@@ -12,9 +12,21 @@ pipeline {
     }
 
     stage('test') {
-      steps {
-        script {
-          def buildScriptPath = "/var/lib/jenkins/workspace/12345_main/test.sh"
+      parallel {
+        stage('test') {
+          steps {
+            script {
+              def buildScriptPath = "/var/lib/jenkins/workspace/12345_main/test.sh"
+            }
+
+          }
+        }
+
+        stage('testB') {
+          steps {
+            sh '''sleep 10
+echo done'''
+          }
         }
 
       }
