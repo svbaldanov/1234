@@ -1,28 +1,36 @@
 pipeline {
-    agent any
-    
-    tools {
-        // Использовать инструмент Maven, установленный из репозитория
-        maven '395'
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
     }
 
-    stages {
-        stage('Build') {
-            steps {
-                // Вызов команд Maven без указания полного пути
-                sh 'mvn clean package'
-            }
-        }
-        // Другие этапы вашего пайплайна
+    stage('test') {
+      steps {
+        echo 'Placeholder'
+      }
     }
 
-    // Обработка успешного или неуспешного завершения пайплайна
-    post {
-        success {
-            echo 'Build and deployment succeeded!'
-        }
-        failure {
-            echo 'Build or deployment failed!'
-        }
+    stage('deploy') {
+      steps {
+        echo 'Placeholder1'
+      }
     }
+
+  }
+  tools {
+    maven '395'
+  }
+  post {
+    success {
+      echo 'Build and deployment succeeded!'
+    }
+
+    failure {
+      echo 'Build or deployment failed!'
+    }
+
+  }
 }
