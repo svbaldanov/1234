@@ -9,7 +9,8 @@ pipeline {
 
     stage('test') {
       steps {
-        echo 'Placeholder'
+        sleep 5
+        sh 'echo Success!'
       }
     }
 
