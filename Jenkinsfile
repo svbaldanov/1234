@@ -7,7 +7,6 @@ pipeline {
           def buildScriptPath = "/var/lib/jenkins/workspace/12345_main/build.sh"
         }
 
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
       }
     }
 
