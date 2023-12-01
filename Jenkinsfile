@@ -37,7 +37,8 @@ echo done'''
   }
   post {
     success {
-      echo 'Build and deployment succeeded!'
+      archiveArtifacts 'target/*.jar'
+      stash(name: 'Java 11', includes: 'target/**')
     }
 
     failure {
